@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: '*',
+    origin: 'http://65.0.75.107:3000',
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,FETCH",
     preflightContinue: false,
     optionsSuccessStatus: 200,
