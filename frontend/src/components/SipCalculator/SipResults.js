@@ -12,27 +12,30 @@ const SipResults = ({ futureValue, yearlyValues, chartData }) => {
       <ChartComponent chartData={chartData} />
 
       {yearlyValues.length > 0 && (
-        <TableContainer component={Paper} sx={{ marginTop: 2 }}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Year</TableCell>
-                <TableCell align="right">Value</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {yearlyValues.map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell component="th" scope="row">
-                    {index + 1}
-                  </TableCell>
-                  <TableCell align="right">{row.toFixed(2)}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
+  <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell sx={{ border: '2px solid darkgrey', bgcolor: 'white', color: 'black', m: 2 }}>Year</TableCell>
+          <TableCell align="right" sx={{ border: '2px solid darkgrey', bgcolor: 'white', color: 'black', m: 2 }}>Value</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {yearlyValues.map((row, index) => (
+          <TableRow key={index}>
+            <TableCell component="th" scope="row" sx={{ border: '2px solid darkgrey', bgcolor: 'white', color: 'black', m: 2 }}>
+              {index + 1}
+            </TableCell>
+            <TableCell align="right" sx={{ border: '2px solid darkgrey', bgcolor: 'white', color: 'black', m: 2 }}>
+              {row.toFixed(2)}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+)}
+
     </div>
   );
 };

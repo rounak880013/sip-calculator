@@ -1,49 +1,62 @@
-// src/Navbar.js
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button, Box, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [expandNavBar, setExpandNavBar] = useState(false);
 
-  const handleMenu = () => {
+  const handleMenuToggle = () => {
     setExpandNavBar(!expandNavBar);
   };
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenu}>
+        <IconButton 
+          edge="start" 
+          color="inherit" 
+          aria-label="menu" 
+          onClick={handleMenuToggle}
+        >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          My App
-        </Typography>
-      </Toolbar>
-      {expandNavBar && (
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start', // Align items to the left=
-            backgroundColor: 'background.paper', // Adjust as needed
-          }}
+        <Typography 
+          variant="h6" 
+          sx={{ flexGrow: 1 }}
         >
-          <Button
-            color="inherit"
-            component={Link}
-            to="/sip-calculator"
-            sx={{ 
-              color: 'black', // Make the text black
-              textAlign: 'left', // Align text to the left
-              justifyContent: 'flex-start' // Align button content to the start
+          <Link 
+            to="/" 
+            style={{ 
+              textDecoration: 'none', 
+              color: 'inherit' 
             }}
           >
-            Sip Calculator
-          </Button>
+            My App
+          </Link>
+        </Typography>
+      </Toolbar>
+
+      <Drawer
+        anchor="left"
+        open={expandNavBar}
+        onClose={handleMenuToggle}
+      >
+        <Box
+          sx={{
+            width: 250,
+            height: '100%',
+            backgroundColor: 'background.paper',
+          }}
+        >
+          <List>
+            <ListItem button component={Link} to="/sip-calculator">
+              <ListItemText primary="Sip Calculator" />
+            </ListItem>
+            {/* Add more navigation items here */}
+          </List>
         </Box>
-      )}
+      </Drawer>
     </AppBar>
   );
 };
