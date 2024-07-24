@@ -7,15 +7,7 @@ const adminRoutes = require('./routes/admin');
 
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: 'http://65.0.75.107:3000',
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,FETCH",
-    preflightContinue: false,
-    optionsSuccessStatus: 200,
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use('/api/admin',adminRoutes);
 

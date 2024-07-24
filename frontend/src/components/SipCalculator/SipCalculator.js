@@ -69,7 +69,7 @@ const SipCalculator = () => {
 
     // Call the API
     try {
-      const response = await fetch('http://127.0.0.1:3000/api/admin/counter', {
+      const response = await fetch('http://65.0.0.107:3000/api/admin/counter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
