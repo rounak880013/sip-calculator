@@ -1,0 +1,16 @@
+<url>
+<loc>https://stepupsipcalculator.co.in/</loc>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://stepupsipcalculator.co.in/sip-calculator</loc>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://stepupsipcalculator.co.in/simple-sip-calculator</loc>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://stepupsipcalculator.co.in/stepup-sip-calculator</loc>
+<priority>0.8</priority>
+</url>
