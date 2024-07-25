@@ -20,11 +20,38 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
     setStepUpPercentage(propStepUpPercentage || 0);
   }, [propStepUpPercentage]);
 
+  const keywords = sipType === 'step-up' 
+    ? 'Step-Up SIP, SIP Calculator, Step-Up Systematic Investment Plan, SIP returns' 
+    : 'SIP, SIP Calculator, Systematic Investment Plan, SIP returns';
+
+  const content = {
+    sip: {
+      title: 'SIP Calculator',
+      description: 'A Systematic Investment Plan (SIP) allows you to invest a fixed amount regularly in mutual funds. Use our SIP Calculator to estimate your returns over time and plan your investments effectively.',
+    },
+    simple: {
+      title: 'Simple SIP Calculator',
+      description: 'Our Simple SIP Calculator helps you estimate the returns on your systematic investments with ease. Understand how regular investments can grow your wealth over time.',
+    },
+    'step-up': {
+      title: 'Step-Up SIP Calculator',
+      description: 'The Step-Up SIP Calculator helps you plan your investments by allowing you to increase your SIP amount at regular intervals. This strategy can help you achieve your financial goals faster.',
+    },
+    incremental: {
+      title: 'Incremental SIP Calculator',
+      description: 'The Incremental SIP Calculator lets you estimate returns when you gradually increase your investment amount. This approach can enhance your savings potential significantly.',
+    },
+  };
+
+
+  const pageTitle = content[sipType]?.title || 'SIP Calculator';
+  const pageDescription = content[sipType]?.description || 'Calculate your SIP returns with our SIP Calculator.';
+
   const calculateSip = async () => {
     const n = investmentPeriod * 12; // Total number of monthly investments
     const r = rateOfReturn / 100 / 12; // Monthly rate of return
     const inflationRate = adjustForInflation ? 6 / 100 : 0; // Assume 6% inflation if checked
-    console.log()
+    // console.log()
     let fv;
     let yearlyData = [];
     if (sipType === 'step-up') {
@@ -99,8 +126,10 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
   return (
     <Container>
       <Helmet>
-        <title>{propSipType === 'step-up' ? 'Step-Up SIP Calculator' : 'SIP Calculator'}</title>
-        <meta name="description" content={`Calculate your ${propSipType === 'step-up' ? 'Step-Up' : 'SIP'} returns with our calculator.`} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={keywords} />
+        <link rel="canonical" href={`https://stepupsipcalculator.co.in/${sipType === 'step-up' ? 'stepup-sip-calculator' : 'sip-calculator'}`} />
       </Helmet>
       <Typography
         variant="h1"
@@ -114,7 +143,10 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
           boxSizing: 'border-box'
         }}
       >
-        {propSipType === 'step-up' ? 'Step-Up SIP Calculator' : 'SIP Calculator'}
+        {pageTitle}
+      </Typography>
+      <Typography variant="body1" paragraph>
+        {pageDescription}
       </Typography>
       <TextField
         label="Monthly Investment"
