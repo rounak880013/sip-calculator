@@ -50,8 +50,8 @@ const Navbar = () => {
           }}
         >
           <List>
-            <ListItem button component={Link} to="/sip-calculator">
-              <ListItemText primary="Sip Calculator" />
+            <ListItem button component={Link} to="/stepup-sip-calculator">
+              <ListItemText primary="Step up Sip Calculator" />
             </ListItem>
             {/* Add more navigation items here */}
           </List>

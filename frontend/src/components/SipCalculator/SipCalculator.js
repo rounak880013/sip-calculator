@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Container, Select, MenuItem, FormControl, InputLabel, Box, FormControlLabel, Checkbox } from '@mui/material';
+import { TextField, Button, Typography, Container, Select, MenuItem, FormControl, InputLabel, Box, FormControlLabel, Checkbox, useMediaQuery, useTheme  } from '@mui/material';
 import SipResults from './SipResults';
 import { Helmet } from 'react-helmet'; // Import React Helmet
 
@@ -13,6 +13,8 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
   const [sipType, setSipType] = useState(propSipType); 
   const [yearlyValues, setYearlyValues] = useState([]);
   const [chartData, setChartData] = useState(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     setStepUpPercentage(propStepUpPercentage || 0);
@@ -100,7 +102,18 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
         <title>{propSipType === 'step-up' ? 'Step-Up SIP Calculator' : 'SIP Calculator'}</title>
         <meta name="description" content={`Calculate your ${propSipType === 'step-up' ? 'Step-Up' : 'SIP'} returns with our calculator.`} />
       </Helmet>
-      <Typography variant="h1" gutterBottom>
+      <Typography
+        variant="h1"
+        gutterBottom
+        sx={{
+          fontSize: isMobile ? '2rem' : 'inherit',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          boxSizing: 'border-box'
+        }}
+      >
         {propSipType === 'step-up' ? 'Step-Up SIP Calculator' : 'SIP Calculator'}
       </Typography>
       <TextField
