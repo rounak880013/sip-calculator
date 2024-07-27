@@ -18,13 +18,13 @@ const metadata = {
       canonical: 'https://stepupsipcalculator.co.in/simple-sip-calculator'
     },
     '/stepup-sip-calculator': {
-      title: 'Step-Up SIP Calculator - Grow Your Investments',
+      title: 'Step-Up SIP Calculator',
       description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
       keywords: 'step-up sip, calculator, returns, investment growth',
       canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator'
     },
     '/incremental-sip-calculator': {
-      title: 'Incremental SIP Calculator - Plan Your Future Investments',
+      title: 'Incremental SIP Calculator',
       description: 'Calculate your incremental SIP returns over time and plan your future investments with our incremental SIP calculator.',
       keywords: 'incremental sip, calculator, returns, future investments',
       canonical: 'https://stepupsipcalculator.co.in/incremental-sip-calculator'
@@ -62,3 +62,4 @@ const metadata = {
   };
   
   module.exports = metadata;
+  

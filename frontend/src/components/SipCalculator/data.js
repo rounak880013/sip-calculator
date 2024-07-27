@@ -1,64 +1,62 @@
-// data.js
-
 export const data = {
-  'sip-home': {
-    title: 'Home - SIP Calculator',
-    description: 'Welcome to the SIP Calculator home page. Explore various systematic investment plan calculators to plan your investments effectively.',
-    keywords: 'SIP, SIP Calculator, Home, Systematic Investment Plan, Investment Planning'
+  '': {
+    title: 'Home SIP Calculator - Calculate Your Investment Goals',
+    description: 'Get detailed information about mutual funds and calculate your investment goals with our Home SIP Calculator.',
+    keywords: 'home, sip, calculator, mutual funds, investment goals',
+    canonical: 'https://stepupsipcalculator.co.in/'
   },
-  'sip': {
-    title: 'SIP Calculator',
-    description: 'A Systematic Investment Plan (SIP) allows you to invest a fixed amount regularly in mutual funds. Use our SIP Calculator to estimate your returns over time and plan your investments effectively.',
-    keywords: 'SIP, SIP Calculator, Systematic Investment Plan, SIP returns, sip cal'
+  'sip-calculator': {
+    title: 'SIP Calculator - Calculate Your SIP Returns',
+    description: 'Calculate your SIP returns with our advanced SIP calculator.',
+    keywords: 'sip, calculator, returns',
+    canonical: 'https://stepupsipcalculator.co.in/sip-calculator'
   },
-  'simple_sip': {
-    title: 'Simple SIP Calculator',
-    description: 'Our Simple SIP Calculator helps you estimate the returns on your systematic investments with ease. Understand how regular investments can grow your wealth over time.',
-    keywords: 'Simple SIP, SIP Calculator, Systematic Investment Plan, Returns, Investment'
+  'simple-sip-calculator': {
+    title: 'Simple SIP Calculator - Easy Investment Calculations',
+    description: 'Calculate your simple SIP returns effortlessly with our easy-to-use SIP calculator.',
+    keywords: 'simple sip, calculator, returns, investment',
+    canonical: 'https://stepupsipcalculator.co.in/simple-sip-calculator'
   },
-  'stepup_sip': {
-    title: 'Step-Up SIP Calculator',
-    description: 'The Step-Up SIP Calculator helps you plan your investments by allowing you to increase your SIP amount at regular intervals. This strategy can help you achieve your financial goals faster.',
-    keywords: 'Step-Up SIP, SIP Calculator, Step-Up Systematic Investment Plan, SIP returns, sip cal'
+  'stepup-sip-calculator': {
+    title: 'Step-Up SIP Calculator - Grow Your Investments',
+    description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
+    keywords: 'step-up sip, calculator, returns, investment growth',
+    canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator'
   },
-  'step_up_sip': {
-    title: 'Step-Up SIP Calculator',
-    description: 'The Step-Up SIP Calculator helps you plan your investments by allowing you to increase your SIP amount at regular intervals. This strategy can help you achieve your financial goals faster.',
-    keywords: 'Step-Up SIP, SIP Calculator, Step-Up Systematic Investment Plan, SIP returns, sip cal'
+  'incremental-sip-calculator': {
+    title: 'Incremental SIP Calculator - Plan Your Future Investments',
+    description: 'Calculate your incremental SIP returns over time and plan your future investments with our incremental SIP calculator.',
+    keywords: 'incremental sip, calculator, returns, future investments',
+    canonical: 'https://stepupsipcalculator.co.in/incremental-sip-calculator'
   },
-  'incremental': {
-    title: 'Incremental SIP Calculator',
-    description: 'The Incremental SIP Calculator lets you estimate returns when you gradually increase your investment amount. This approach can enhance your savings potential significantly.',
-    keywords: 'Incremental SIP, SIP Calculator, Incremental Systematic Investment Plan, Investment Growth'
+  'mutual-fund/sip-calculator': {
+    title: 'Mutual Fund SIP Calculator - Plan Your Mutual Fund Investments',
+    description: 'Calculate your mutual fund SIP returns and plan your investments with our mutual fund SIP calculator.',
+    keywords: 'mutual fund, sip, calculator, returns, investment planning',
+    canonical: 'https://stepupsipcalculator.co.in/mutual-fund/sip-calculator'
   },
-  'mutual_fund_sip_calculator': {
-    title: 'Mutual Fund SIP Calculator',
-    description: 'Use our Mutual Fund SIP Calculator to estimate returns on your mutual fund investments through systematic plans. Plan your investments efficiently with our tool.',
-    keywords: 'Mutual Fund SIP, SIP Calculator, Mutual Fund Investment, Systematic Investment Plan'
+  'mutual-fund/sip': {
+    title: 'Mutual Fund SIP - Explore Investment Options',
+    description: 'Explore mutual fund SIP options and calculate your returns with our comprehensive SIP tool.',
+    keywords: 'mutual fund, sip, investment options, returns',
+    canonical: 'https://stepupsipcalculator.co.in/mutual-fund/sip'
   },
-  'mutual_fund_sip': {
-    title: 'Mutual Fund SIP Calculator',
-    description: 'Use our Mutual Fund SIP Calculator to estimate returns on your mutual fund investments through systematic plans. Plan your investments efficiently with our tool.',
-    keywords: 'Mutual Fund SIP, SIP Calculator, Mutual Fund Investment, Systematic Investment Plan'
+  'mutual-fund/simple-sip-calculator': {
+    title: 'Mutual Fund Simple SIP Calculator - Easy Mutual Fund Calculations',
+    description: 'Calculate simple SIP returns for mutual funds with our easy-to-use calculator.',
+    keywords: 'mutual fund, simple sip, calculator, returns, easy calculations',
+    canonical: 'https://stepupsipcalculator.co.in/mutual-fund/simple-sip-calculator'
   },
-  'mutual_fund_simple_sip': {
-    title: 'Mutual Fund Simple SIP Calculator',
-    description: 'Calculate returns on your mutual fund investments using our Simple SIP Calculator. See how your regular investments can grow over time.',
-    keywords: 'Mutual Fund Simple SIP, SIP Calculator, Mutual Fund Investments, Simple SIP Returns'
+  'mutual-fund/stepup-sip-calculator': {
+    title: 'Mutual Fund Step-Up SIP Calculator - Enhance Your Investment Returns',
+    description: 'Calculate step-up SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
+    keywords: 'mutual fund, step-up sip, calculator, returns, investment enhancement',
+    canonical: 'https://stepupsipcalculator.co.in/mutual-fund/stepup-sip-calculator'
   },
-  'mutual_fund_stepup': {
-    title: 'Mutual Fund Step-Up SIP Calculator',
-    description: 'Plan your mutual fund investments with our Step-Up SIP Calculator. Increase your SIP amount at regular intervals to achieve your financial goals faster.',
-    keywords: 'Mutual Fund Step-Up SIP, SIP Calculator, Step-Up Systematic Investment Plan, Mutual Fund Investment'
-  },
-  'mutual_fund_step_up': {
-    title: 'Mutual Fund Step-Up SIP Calculator',
-    description: 'Plan your mutual fund investments with our Step-Up SIP Calculator. Increase your SIP amount at regular intervals to achieve your financial goals faster.',
-    keywords: 'Mutual Fund Step-Up SIP, SIP Calculator, Step-Up Systematic Investment Plan, Mutual Fund Investment'
-  },
-  'mutual_fund_incremental': {
-    title: 'Mutual Fund Incremental SIP Calculator',
-    description: 'Estimate returns on your mutual fund investments with our Incremental SIP Calculator. Gradually increase your investment amount to enhance your savings potential.',
-    keywords: 'Mutual Fund Incremental SIP, SIP Calculator, Incremental Systematic Investment Plan, Investment Growth'
+  'mutual-fund/incremental-sip-calculator': {
+    title: 'Mutual Fund Incremental SIP Calculator - Incremental Returns Planning',
+    description: 'Calculate incremental SIP returns for mutual funds and plan your returns incrementally with our SIP calculator.',
+    keywords: 'mutual fund, incremental sip, calculator, returns planning',
+    canonical: 'https://stepupsipcalculator.co.in/mutual-fund/incremental-sip-calculator'
   }
 };
