@@ -10,13 +10,12 @@ import SipCalculatorWrapper from './components/SipCalculator/SipCalculatorWrappe
 
 const App = () => {
   return (
-    <HelmetProvider>
       <Router>
         <div>
           <Navbar />
           <div style={{ paddingBottom: '4rem' }}> {/* Adjust padding to avoid content overlap */}
             <Routes>
-              <Route path="/" element={<SipCalculatorWrapper sipType="sip-home" />} /> 
+              <Route path="/" element={<SipCalculatorWrapper sipType="" />} /> 
               <Route path="/sip-calculator" element={<SipCalculatorWrapper sipType="sip" />} />
               <Route path="/simple-sip-calculator" element={<SipCalculatorWrapper sipType="simple_sip" />} />
               <Route path="/stepup-sip-calculator" element={<SipCalculatorWrapper sipType="stepup_sip" stepUpPercentage={10} />} />
@@ -33,7 +32,6 @@ const App = () => {
           <Footer />
         </div>
       </Router>
-    </HelmetProvider>
   );
 };
 

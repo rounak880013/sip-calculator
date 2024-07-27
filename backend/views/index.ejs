@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <meta name="keywords" content="<%= keywords %>">
+  <link rel="canonical" href="<%= canonical %>">
+</head>
+<body>
+  <div id="root"><!-- React will mount here --></div>
+  <script>
+    console.log('EJS template data:', {
+      title: '<%= title %>',
+      description: '<%= description %>',
+      keywords: '<%= keywords %>',
+      canonical: '<%= canonical %>'
+    });
+  </script>
+  <script src="/static/js/main.cf0a05a5.js"></script> <!-- Adjust the path to your React build -->
+</body>
+</html>

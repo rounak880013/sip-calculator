@@ -6,6 +6,7 @@ import SipResults from './SipResults';
 import { data } from './data'; // Import the data from data.js
 
 const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPercentage }) => {
+  console.log(propSipType);
   const [monthlyInvestment, setMonthlyInvestment] = useState(0);
   const [rateOfReturn, setRateOfReturn] = useState(0);
   const [investmentPeriod, setInvestmentPeriod] = useState(0);

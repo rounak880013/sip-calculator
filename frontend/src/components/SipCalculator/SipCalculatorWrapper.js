@@ -6,7 +6,7 @@ import SipCalculator from './SipCalculator'; // Import the SipCalculator compone
 import { data } from './data'; // Import the metadata
 
 export const SipCalculatorWrapper = ({ sipType, stepUpPercentage }) => {
-  const { title, description, keywords } = data[sipType] || data["sip"];
+  // const { title, description, keywords } = data[sipType] || data["sip"];
   // useEffect(() => {
   //   // Destructure the title from the data object based on sipType
   //   const { title } = data[sipType] || data["sip"];
@@ -17,12 +17,12 @@ export const SipCalculatorWrapper = ({ sipType, stepUpPercentage }) => {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://stepupsipcalculator.co.in/${sipType === 'step-up' ? 'stepup-sip-calculator' : 'sip-calculator'}`} />
-      </Helmet>
+      </Helmet> */}
       <SipCalculator sipType={sipType} stepUpPercentage={stepUpPercentage} />
     </div>
   );
