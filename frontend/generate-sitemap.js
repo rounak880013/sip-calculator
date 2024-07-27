@@ -5,17 +5,18 @@ const { Readable } = require('stream');
 
 // Define your static routes
 const links = [
-  { url: '/', priority: 1.0 },
-  { url: '/sip-calculator', priority: 0.8 },
-  { url: '/simple-sip-calculator', priority: 0.8 },
-  { url: '/stepup-sip-calculator', priority: 0.8 },
-  { url: '/incremental-sip-calculator', priority: 0.8 },
-  { url: '/mutual-fund/sip-calculator', priority: 0.8 },
-  { url: '/mutual-fund/simple-sip-calculator', priority: 0.8 },
-  { url: '/simple-mutual-fund/simple-sip-calculator', priority: 0.8 },
-  { url: '/mutual-fund/stepup-sip-calculator', priority: 0.8 },
-  { url: '/mutual-fund/incremental-sip-calculator', priority: 0.8 },
-  // Add other routes here
+  { url: '/', changefreq: 'daily', priority: 1.0 },
+  { url: '/sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/simple-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/stepup-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/step-up-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/incremental-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/mutual-fund/sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/mutual-fund/sip', changefreq: 'daily', priority: 0.8 },
+  { url: '/mutual-fund/simple-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/mutual-fund/stepup-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/mutual-fund/step-up-sip-calculator', changefreq: 'daily', priority: 0.8 },
+  { url: '/mutual-fund/incremental-sip-calculator', changefreq: 'daily', priority: 0.8 },
 ];
 
 // Create a sitemap stream
