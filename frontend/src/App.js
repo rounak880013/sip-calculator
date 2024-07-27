@@ -14,7 +14,7 @@ const App = () => {
         <Navbar />
         <div style={{ paddingBottom: '4rem' }}> {/* Adjust padding to avoid content overlap */}
           <Routes>
-            <Route path="/" element={<SipCalculatorWrapper sipType="sip" />} /> 
+            <Route path="/" element={<SipCalculatorWrapper sipType="sip-home" />} /> 
             <Route path="/sip-calculator" element={<SipCalculatorWrapper sipType="sip" />} />
             <Route path="/simple-sip-calculator" element={<SipCalculatorWrapper sipType="simple" />} />
             <Route path="/stepup-sip-calculator" element={<SipCalculatorWrapper sipType="step-up" stepUpPercentage={10} />} />

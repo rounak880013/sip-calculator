@@ -1,7 +1,9 @@
+// SipCalculator.js
+
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Container, Select, MenuItem, FormControl, InputLabel, Box, FormControlLabel, Checkbox, useMediaQuery, useTheme  } from '@mui/material';
+import { TextField, Button, Typography, Container, Select, MenuItem, FormControl, InputLabel, Box, FormControlLabel, Checkbox, useMediaQuery, useTheme } from '@mui/material';
 import SipResults from './SipResults';
-import { Helmet } from 'react-helmet'; // Import React Helmet
+import { data } from './data'; // Import the data from data.js
 
 const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPercentage }) => {
   const [monthlyInvestment, setMonthlyInvestment] = useState(0);
@@ -10,7 +12,7 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
   const [futureValue, setFutureValue] = useState(null);
   const [adjustForInflation, setAdjustForInflation] = useState(false);
   const [stepUpPercentage, setStepUpPercentage] = useState(propStepUpPercentage || 0);
-  const [sipType, setSipType] = useState(propSipType); 
+  const [sipType, setSipType] = useState(propSipType);
   const [yearlyValues, setYearlyValues] = useState([]);
   const [chartData, setChartData] = useState(null);
   const theme = useTheme();
@@ -20,38 +22,11 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
     setStepUpPercentage(propStepUpPercentage || 0);
   }, [propStepUpPercentage]);
 
-  const keywords = sipType === 'step-up' 
-    ? 'Step-Up SIP, SIP Calculator, Step-Up Systematic Investment Plan, SIP returns' 
-    : 'SIP, SIP Calculator, Systematic Investment Plan, SIP returns';
-
-  const content = {
-    sip: {
-      title: 'SIP Calculator',
-      description: 'A Systematic Investment Plan (SIP) allows you to invest a fixed amount regularly in mutual funds. Use our SIP Calculator to estimate your returns over time and plan your investments effectively.',
-    },
-    simple: {
-      title: 'Simple SIP Calculator',
-      description: 'Our Simple SIP Calculator helps you estimate the returns on your systematic investments with ease. Understand how regular investments can grow your wealth over time.',
-    },
-    'step-up': {
-      title: 'Step-Up SIP Calculator',
-      description: 'The Step-Up SIP Calculator helps you plan your investments by allowing you to increase your SIP amount at regular intervals. This strategy can help you achieve your financial goals faster.',
-    },
-    incremental: {
-      title: 'Incremental SIP Calculator',
-      description: 'The Incremental SIP Calculator lets you estimate returns when you gradually increase your investment amount. This approach can enhance your savings potential significantly.',
-    },
-  };
-
-
-  const pageTitle = content[sipType]?.title || 'SIP Calculator';
-  const pageDescription = content[sipType]?.description || 'Calculate your SIP returns with our SIP Calculator.';
-
   const calculateSip = async () => {
     const n = investmentPeriod * 12; // Total number of monthly investments
     const r = rateOfReturn / 100 / 12; // Monthly rate of return
     const inflationRate = adjustForInflation ? 6 / 100 : 0; // Assume 6% inflation if checked
-    // console.log()
+
     let fv;
     let yearlyData = [];
     if (sipType === 'step-up') {
@@ -91,7 +66,7 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
     });
 
     // Prepare data to be sent to the API
-    const data = {
+    const apiData = {
       monthlyInvestment,
       rateOfReturn,
       investmentPeriod,
@@ -108,7 +83,7 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(apiData),
       });
 
       if (response.ok) {
@@ -125,12 +100,6 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
 
   return (
     <Container>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content={keywords} />
-        <link rel="canonical" href={`https://stepupsipcalculator.co.in/${sipType === 'step-up' ? 'stepup-sip-calculator' : 'sip-calculator'}`} />
-      </Helmet>
       <Typography
         variant="h1"
         gutterBottom
@@ -143,10 +112,10 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
           boxSizing: 'border-box'
         }}
       >
-        {pageTitle}
+        {data[sipType]?.title || 'SIP Calculator'}
       </Typography>
       <Typography variant="body1" paragraph>
-        {pageDescription}
+        {data[sipType]?.description || 'Calculate your SIP returns with our SIP Calculator.'}
       </Typography>
       <TextField
         label="Monthly Investment"
