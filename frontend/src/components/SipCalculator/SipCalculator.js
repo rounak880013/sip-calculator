@@ -101,20 +101,9 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
 
   return (
     <Container>
-      <Typography
-        variant="h1"
-        gutterBottom
-        sx={{
-          fontSize: isMobile ? '2rem' : 'inherit',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
-          width: '100%',
-          boxSizing: 'border-box'
-        }}
-      >
+      <h1>
         {data[sipType]?.title || 'SIP Calculator'}
-      </Typography>
+      </h1>
       <Typography variant="body1" paragraph>
         {data[sipType]?.displayText || 'Calculate your SIP returns with our SIP Calculator.'}
       </Typography>
