@@ -21,18 +21,18 @@ const metadata = {
       displayText: 'Our Simple SIP Calculator makes it easy to calculate your SIP returns. Simply input your data to see how your investments grow over time.'
     },
     '/step-up-sip-calculator': {
-      title: 'Step-Up SIP Calculator - Grow Your Investments',
-      description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
-      keywords: 'step-up sip, calculator, returns, investment growth',
-      canonical: 'https://stepupsipcalculator.co.in/step-up-sip-calculator',
-      displayText: 'The Step-Up SIP Calculator helps you plan for investment growth by increasing your SIP amount at regular intervals. Achieve your financial goals faster.'
+        title: 'Step-Up SIP Calculator - Grow Your Investments',
+        description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
+        keywords: 'step-up sip, calculator, returns, investment growth',
+        canonical: 'https://stepupsipcalculator.co.in/step-up-sip-calculator',
+        displayText: 'The Step-Up SIP Calculator helps you plan for investment growth by increasing your SIP amount at regular intervals. Achieve your financial goals faster.'
     },
     '/stepup-sip-calculator': {
-      title: 'StepUp SIP Calculator - Grow Your Investments',
-      description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
-      keywords: 'stepup sip, sip calculator, returns, investment growth',
-      canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator',
-      displayText: 'Use our Step-Up SIP Calculator to see how incrementally increasing your SIP contributions can lead to significant investment growth over time.'
+        title: 'StepUp SIP Calculator - Grow Your Investments',
+        description: 'Calculate your stepup SIP returns and grow your investments with our step-up SIP calculator.',
+        keywords: 'stepup sip, sip calculator, returns, investment growth',
+        canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator',
+        displayText: 'Use our Step-Up SIP Calculator to see how incrementally increasing your SIP contributions can lead to significant investment growth over time.'
     },
     '/incremental-sip-calculator': {
       title: 'Incremental SIP Calculator - Plan Your Future Investments',
@@ -64,7 +64,7 @@ const metadata = {
     },
     '/mutual-fund/stepup-sip-calculator': {
       title: 'Mutual Fund StepUp SIP Calculator',
-      description: 'Calculate step-up SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
+      description: 'Calculate stepup SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
       keywords: 'mutual fund, step-up sip, calculator, returns, investment enhancement',
       canonical: 'https://stepupsipcalculator.co.in/mutual-fund/stepup-sip-calculator',
       displayText: 'Enhance your mutual fund returns with our Step-Up SIP Calculator. Learn how increasing your SIP contributions at intervals can boost your investments.'
