@@ -1,5 +1,5 @@
 const metadata = {
-    '/': {
+    '': {
       title: 'Home SIP Calculator - Calculate Your Investment Goals',
       description: 'Get detailed information about mutual funds and calculate your investment goals with our Home SIP Calculator.',
       keywords: 'home, sip, calculator, mutual funds, investment goals',

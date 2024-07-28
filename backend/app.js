@@ -6,40 +6,35 @@ const app = express();
 
 const adminRoutes = require('./routes/admin');
 
-// Middleware
 app.use(express.json());
 app.use(cors());
-
-// API Routes
 app.use('/api/admin', adminRoutes);
 
-const port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 
-// Set up EJS view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// console.log(metadata);
-// Define routes for each page
+// Define a route for each page
 Object.keys(metadata).forEach(route => {
   app.get(route, (req, res) => {
     console.log(`Serving metadata for route: ${route}`);
-    // console.log(metadata[route]);
-    // Serve metadata for the current route using EJS
     res.render('index', metadata[route]);
   });
 });
 
-// Serve React app for all other routes (client-side routing)
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+});
+
+// Catch-all handler for any requests that don't match above
 app.get('*', (req, res) => {
-  console.log('star');
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
 
-// Start the server
 app.listen(port, function () {
   console.log(`Server is listening on port ${port}`);
 });
