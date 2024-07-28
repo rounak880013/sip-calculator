@@ -116,7 +116,7 @@ const SipCalculator = ({ sipType: propSipType, stepUpPercentage: propStepUpPerce
         {data[sipType]?.title || 'SIP Calculator'}
       </Typography>
       <Typography variant="body1" paragraph>
-        {data[sipType]?.description || 'Calculate your SIP returns with our SIP Calculator.'}
+        {data[sipType]?.displayText || 'Calculate your SIP returns with our SIP Calculator.'}
       </Typography>
       <TextField
         label="Monthly Investment"
