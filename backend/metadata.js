@@ -9,7 +9,7 @@ const metadata = {
     '/sip-calculator': {
       title: 'SIP Calculator - Calculate Your SIP Returns',
       description: 'Calculate your SIP returns with our advanced SIP calculator.',
-      keywords: 'sip, calculator, returns',
+      keywords: 'sip, calculator, returns, sip cal',
       canonical: 'https://stepupsipcalculator.co.in/sip-calculator',
       displayText: 'Use our SIP Calculator to estimate your SIP returns. This advanced tool helps you plan your investments and track returns efficiently.'
     },
@@ -28,9 +28,9 @@ const metadata = {
       displayText: 'The Step-Up SIP Calculator helps you plan for investment growth by increasing your SIP amount at regular intervals. Achieve your financial goals faster.'
     },
     '/stepup-sip-calculator': {
-      title: 'Step-Up SIP Calculator - Grow Your Investments',
+      title: 'StepUp SIP Calculator - Grow Your Investments',
       description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
-      keywords: 'step-up sip, calculator, returns, investment growth',
+      keywords: 'stepup sip, sip calculator, returns, investment growth',
       canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator',
       displayText: 'Use our Step-Up SIP Calculator to see how incrementally increasing your SIP contributions can lead to significant investment growth over time.'
     },
@@ -63,14 +63,14 @@ const metadata = {
       displayText: 'Our Mutual Fund Simple SIP Calculator simplifies the process of calculating SIP returns. Input your data to get a clear picture of your investment growth.'
     },
     '/mutual-fund/stepup-sip-calculator': {
-      title: 'Mutual Fund Step-Up SIP Calculator - Enhance Your Investment Returns',
+      title: 'Mutual Fund StepUp SIP Calculator',
       description: 'Calculate step-up SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
       keywords: 'mutual fund, step-up sip, calculator, returns, investment enhancement',
       canonical: 'https://stepupsipcalculator.co.in/mutual-fund/stepup-sip-calculator',
       displayText: 'Enhance your mutual fund returns with our Step-Up SIP Calculator. Learn how increasing your SIP contributions at intervals can boost your investments.'
     },
     '/mutual-fund/step-up-sip-calculator': {
-      title: 'Mutual Fund Step-Up SIP Calculator - Enhance Your Investment Returns',
+      title: 'Mutual Fund Step-Up SIP Calculator',
       description: 'Calculate step-up SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
       keywords: 'mutual fund, step-up sip, calculator, returns, investment enhancement',
       canonical: 'https://stepupsipcalculator.co.in/mutual-fund/step-up-sip-calculator',
