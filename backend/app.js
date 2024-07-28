@@ -11,7 +11,6 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/admin', adminRoutes);
 
-app.use(prerender.set('prerenderToken', 'YOUR_PRERENDER.IO_TOKEN'));
 
 let port = process.env.PORT || 3000;
 
