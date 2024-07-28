@@ -21,6 +21,10 @@ let port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
 // Define a route for each page
 Object.keys(metadata).forEach(route => {
   app.get(route, (req, res) => {
