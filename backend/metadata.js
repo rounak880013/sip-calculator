@@ -1,5 +1,5 @@
 const metadata = {
-    '/': {
+    '': {
       title: 'Home SIP Calculator - Calculate Your Investment Goals',
       description: 'Get detailed information about mutual funds and calculate your investment goals with our Home SIP Calculator.',
       keywords: 'home, sip, calculator, mutual funds, investment goals',
@@ -17,10 +17,16 @@ const metadata = {
       keywords: 'simple sip, calculator, returns, investment',
       canonical: 'https://stepupsipcalculator.co.in/simple-sip-calculator'
     },
-    '/stepup-sip-calculator': {
+    '/step-up-sip-calculator': {
       title: 'Step-Up SIP Calculator',
       description: 'Calculate your step-up SIP returns and grow your investments with our step-up SIP calculator.',
       keywords: 'step-up sip, calculator, returns, investment growth',
+      canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator'
+    },
+    '/stepup-sip-calculator': {
+      title: 'StepUp SIP Calculator',
+      description: 'Calculate your stepup SIP returns and grow your investments with our stepup SIP calculator.',
+      keywords: 'stepup sip, calculator, returns, investment growth',
       canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator'
     },
     '/incremental-sip-calculator': {
