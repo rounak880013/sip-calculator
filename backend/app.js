@@ -9,11 +9,11 @@ const metadata = require('./metadata');
 const prerender = require('prerender-node');
 const app = express();
 
-const adminRoutes = require('./routes/admin');
+// const adminRoutes = require('./routes/admin');
 
 app.use(express.json());
 app.use(cors());
-app.use('/api/admin', adminRoutes);
+// app.use('/api/admin', adminRoutes);
 
 
 let port = process.env.PORT || 3000;
