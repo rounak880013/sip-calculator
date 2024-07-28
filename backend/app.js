@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, '../frontend/build')));
 // Define routes for each page
 Object.keys(metadata).forEach(route => {
   app.get(route, (req, res) => {
+    console.log(metadata[route])
     // Serve metadata for the current route using EJS
     res.render('index', metadata[route]);
   });
