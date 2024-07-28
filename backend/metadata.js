@@ -48,6 +48,12 @@ const metadata = {
       canonical: 'https://stepupsipcalculator.co.in/mutual-fund/simple-sip-calculator'
     },
     '/mutual-fund/stepup-sip-calculator': {
+        title: 'Mutual Fund StepUp SIP Calculator - Enhance Your Investment Returns',
+        description: 'Calculate stepup SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
+        keywords: 'mutual fund, step-up sip, calculator, returns, investment enhancement',
+        canonical: 'https://stepupsipcalculator.co.in/mutual-fund/stepup-sip-calculator'
+    },
+    '/mutual-fund/step-up-sip-calculator': {
       title: 'Mutual Fund Step-Up SIP Calculator - Enhance Your Investment Returns',
       description: 'Calculate step-up SIP returns for mutual funds and enhance your investment returns with our step-up SIP calculator.',
       keywords: 'mutual fund, step-up sip, calculator, returns, investment enhancement',
