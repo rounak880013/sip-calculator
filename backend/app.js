@@ -33,6 +33,7 @@ Object.keys(metadata).forEach(route => {
 
 // Serve React app for all other routes (client-side routing)
 app.get('*', (req, res) => {
+  console.log('star');
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
 
