@@ -22,10 +22,12 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files from the React build directory
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
+console.log(metadata);
 // Define routes for each page
 Object.keys(metadata).forEach(route => {
   app.get(route, (req, res) => {
-    console.log(metadata[route])
+    console.log(`Serving metadata for route: ${route}`);
+    console.log(metadata[route]);
     // Serve metadata for the current route using EJS
     res.render('index', metadata[route]);
   });
