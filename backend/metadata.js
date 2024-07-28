@@ -30,7 +30,7 @@ const metadata = {
       canonical: 'https://stepupsipcalculator.co.in/stepup-sip-calculator'
     },
     '/incremental-sip-calculator': {
-      title: 'Incremental SIP Calculator',
+      title: 'Incremental SIP Calculator - Plan Future Investments',
       description: 'Calculate your incremental SIP returns over time and plan your future investments with our incremental SIP calculator.',
       keywords: 'incremental sip, calculator, returns, future investments',
       canonical: 'https://stepupsipcalculator.co.in/incremental-sip-calculator'
@@ -66,7 +66,7 @@ const metadata = {
       canonical: 'https://stepupsipcalculator.co.in/mutual-fund/step-up-sip-calculator'
     },
     '/mutual-fund/incremental-sip-calculator': {
-      title: 'Mutual Fund Incremental SIP Calculator - Incremental Returns Planning',
+      title: 'Mutual Fund Incremental SIP Calculator',
       description: 'Calculate incremental SIP returns for mutual funds and plan your returns incrementally with our SIP calculator.',
       keywords: 'mutual fund, incremental sip, calculator, returns planning',
       canonical: 'https://stepupsipcalculator.co.in/mutual-fund/incremental-sip-calculator'
