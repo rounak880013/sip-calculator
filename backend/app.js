@@ -26,16 +26,16 @@ Object.keys(metadata).forEach(route => {
 });
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+// app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-app.get('/favicon.ico', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
-});
+// app.get('/favicon.ico', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+// });
 
-// Catch-all handler for any requests that don't match above
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-});
+// // Catch-all handler for any requests that don't match above
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+// });
 
 app.listen(port, function () {
   console.log(`Server is listening on port ${port}`);

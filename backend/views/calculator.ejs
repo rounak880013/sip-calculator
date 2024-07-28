@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <meta name="keywords" content="<%= keywords %>">
+  <link rel="canonical" href="<%= canonical %>">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4"><%= title %></h1>
+    <form id="sipForm">
+      <div class="form-group">
+        <label for="monthlyInvestment">Monthly Investment</label>
+        <input type="number" class="form-control" id="monthlyInvestment" placeholder="Enter monthly investment" required min="1">
+      </div>
+      <div class="form-group">
+        <label for="expectedReturn">Expected Return Rate (%)</label>
+        <input type="number" class="form-control" id="expectedReturn" placeholder="Enter expected return rate" required min="0" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="noOfYears">Number of Years</label>
+        <input type="number" class="form-control" id="noOfYears" placeholder="Enter number of years" required min="1">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="considerInflation">
+        <label class="form-check-label" for="considerInflation">Consider Inflation</label>
+      </div>
+      <div class="form-group">
+        <label for="sipType">Type of SIP</label>
+        <select class="form-control" id="sipType">
+          <option value="sip">SIP</option>
+          <option value="step-up-sip" <%= title.includes('Step up') ? 'selected' : '' %>>Step up SIP</option>
+        </select>
+      </div>
+      <div class="form-group" id="stepUpRateContainer" style="display: none;">
+        <label for="stepUpRate">Annual Increase Rate (%)</label>
+        <input type="number" class="form-control" id="stepUpRate" placeholder="Enter annual increase rate" value="10" min="0">
+      </div>
+      <button type="button" class="btn btn-primary" onclick="calculateSIP()">Calculate</button>
+    </form>
+    <div class="mt-4" id="result"></div>
+  </div>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('sipType').addEventListener('change', function() {
+      var stepUpRateContainer = document.getElementById('stepUpRateContainer');
+      if (this.value === 'step-up-sip') {
+        stepUpRateContainer.style.display = 'block';
+      } else {
+        stepUpRateContainer.style.display = 'none';
+      }
+    });
+
+    function calculateSIP() {
+      var monthlyInvestment = document.getElementById('monthlyInvestment').value;
+      var expectedReturn = document.getElementById('expectedReturn').value;
+      var noOfYears = document.getElementById('noOfYears').value;
+      var considerInflation = document.getElementById('considerInflation').checked;
+      var sipType = document.getElementById('sipType').value;
+      var stepUpRate = document.getElementById('stepUpRate').value;
+
+      if (sipType === 'step-up-sip') {
+        stepUpRate = stepUpRate ? parseFloat(stepUpRate) : 10;
+      }
+
+      // Calculate SIP or Step-Up SIP
+      var finalValue = calculateFinalValue(monthlyInvestment, expectedReturn, noOfYears, considerInflation, sipType, stepUpRate);
+
+      document.getElementById('result').innerHTML = '<h4>Final Value: ' + finalValue.toFixed(2) + '</h4>';
+    }
+
+    function calculateFinalValue(monthlyInvestment, expectedReturn, noOfYears, considerInflation, sipType, stepUpRate) {
+      monthlyInvestment = parseFloat(monthlyInvestment);
+      expectedReturn = parseFloat(expectedReturn) / 100;
+      noOfYears = parseInt(noOfYears);
+      stepUpRate = parseFloat(stepUpRate) / 100;
+
+      var months = noOfYears * 12;
+      var finalValue = 0;
+
+      if (sipType === 'step-up-sip') {
+        var currentInvestment = monthlyInvestment;
+        for (var i = 0; i < months; i++) {
+          finalValue += currentInvestment * Math.pow(1 + expectedReturn / 12, months - i);
+          if ((i + 1) % 12 === 0) {
+            currentInvestment += currentInvestment * stepUpRate;
+          }
+        }
+      } else {
+        for (var i = 0; i < months; i++) {
+          finalValue += monthlyInvestment * Math.pow(1 + expectedReturn / 12, months - i);
+        }
+      }
+
+      return finalValue;
+    }
+  </script>
+</body>
+</html>
