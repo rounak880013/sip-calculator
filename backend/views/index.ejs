@@ -13,7 +13,20 @@
 <body>
   <%- include('partials/navbar') %>
   <div class="container mt-5">
-    <%- include('calculator') %>
+    <%- include('calculator') %>    
+  </div>
+  <div class="container mt-5">
+    <% if (partial === 'sip-calculator') { %>
+      <%- include('calculators/sip_calculator') %>
+    <% } else if (partial === 'simple-sip-calculator') { %>
+      <%- include('calculator/simple_sip_calculator') %>
+    <% } else if (partial === 'stepup-sip-calculator') { %>
+      <%- include('calculators/step_up_sip_calculator') %>
+    <% } else { %>
+      <h1>Welcome to StepUp SIP Calculator</h1>
+      <p>Get detailed information about SIP, mutual funds, and the market. Our website provides tools and resources to help you make informed investment decisions.</p>
+      <p>Explore our SIP calculators to plan your investments and achieve your financial goals.</p>
+    <% } %>
   </div>
   <%- include('partials/footer') %>
   <!-- Bootstrap JS and dependencies -->

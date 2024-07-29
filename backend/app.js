@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
+
 // Define a route for each page
 Object.keys(metadata).forEach(route => {
   app.get(route, (req, res) => {
