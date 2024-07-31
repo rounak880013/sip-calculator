@@ -1,87 +1,162 @@
-<h1 class="mb-4"><%= title %></h1>
-<form id="sipForm">
-  <div class="form-group">
-    <label for="monthlyInvestment">Monthly Investment</label>
-    <input type="number" class="form-control" id="monthlyInvestment" placeholder="Enter monthly investment" required min="1">
-  </div>
-  <div class="form-group">
-    <label for="expectedReturn">Expected Return Rate (%)</label>
-    <input type="number" class="form-control" id="expectedReturn" placeholder="Enter expected return rate" required min="0" step="0.01">
-  </div>
-  <div class="form-group">
-    <label for="noOfYears">Number of Years</label>
-    <input type="number" class="form-control" id="noOfYears" placeholder="Enter number of years" required min="1">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="considerInflation">
-    <label class="form-check-label" for="considerInflation">Consider Inflation</label>
-  </div>
-  <div class="form-group">
-    <label for="sipType">Type of SIP</label>
-    <select class="form-control" id="sipType">
-      <option value="sip">SIP</option>
-      <option value="step-up-sip" <%= title.includes('Step up') ? 'selected' : '' %>>Step up SIP</option>
-    </select>
-  </div>
-  <div class="form-group" id="stepUpRateContainer" style="display: none;">
-    <label for="stepUpRate">Annual Increase Rate (%)</label>
-    <input type="number" class="form-control" id="stepUpRate" placeholder="Enter annual increase rate" value="10" min="0">
-  </div>
-  <button type="button" class="btn btn-primary" onclick="calculateSIP()">Calculate</button>
-</form>
-<div class="mt-4" id="result"></div>
-
-<script>
-  document.getElementById('sipType').addEventListener('change', function() {
-    var stepUpRateContainer = document.getElementById('stepUpRateContainer');
-    if (this.value === 'step-up-sip') {
-      stepUpRateContainer.style.display = 'block';
-    } else {
-      stepUpRateContainer.style.display = 'none';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    #sipChartContainer {
+      height: 50vh; /* 50% of the viewport height */
+      display: none; /* Hide initially */
     }
-  });
-
-  function calculateSIP() {
-    var monthlyInvestment = document.getElementById('monthlyInvestment').value;
-    var expectedReturn = document.getElementById('expectedReturn').value;
-    var noOfYears = document.getElementById('noOfYears').value;
-    var considerInflation = document.getElementById('considerInflation').checked;
-    var sipType = document.getElementById('sipType').value;
-    var stepUpRate = document.getElementById('stepUpRate').value;
-
-    if (sipType === 'step-up-sip') {
-      stepUpRate = stepUpRate ? parseFloat(stepUpRate) : 10;
+    .table-bordered th,
+    .table-bordered td {
+      border: 2px solid black;
     }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4"><%= title %></h1>
+    <form id="sipForm">
+      <div class="form-group">
+        <label for="monthlyInvestment">Monthly Investment</label>
+        <input type="number" class="form-control" id="monthlyInvestment" placeholder="Enter monthly investment" required min="1" onkeydown="return event.keyCode !== 38 && event.keyCode !== 40">
+      </div>
+      <div class="form-group">
+        <label for="expectedReturn">Expected Return Rate (%)</label>
+        <input type="number" class="form-control" id="expectedReturn" placeholder="Enter expected return rate" required min="0" step="0.01" onkeydown="return event.keyCode !== 38 && event.keyCode !== 40">
+      </div>
+      <div class="form-group">
+        <label for="noOfYears">Number of Years</label>
+        <input type="number" class="form-control" id="noOfYears" placeholder="Enter number of years" required min="1" onkeydown="return event.keyCode !== 38 && event.keyCode !== 40">
+      </div>
+      <div class="form-group">
+        <label for="inflationRate">Inflation Rate (%)</label>
+        <select class="form-control" id="inflationRate">
+          <option value="0">No Inflation</option>
+          <option value="2">2%</option>
+          <option value="3">3%</option>
+          <option value="4">4%</option>
+          <option value="5">5%</option>
+          <option value="6">6%</option>
+          <option value="7">7%</option>
+          <option value="8">8%</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sipType">Type of SIP</label>
+        <select class="form-control" id="sipType">
+          <option value="sip">SIP</option>
+          <option value="step-up-sip" <%= title.includes('Step up') ? 'selected' : '' %>>Step up SIP</option>
+        </select>
+      </div>
+      <div class="form-group" id="stepUpRateContainer" style="display: none;">
+        <label for="stepUpRate">Annual Increase Rate (%)</label>
+        <input type="number" class="form-control" id="stepUpRate" placeholder="Enter annual increase rate" value="10" min="0" onkeydown="return event.keyCode !== 38 && event.keyCode !== 40">
+      </div>
+      <button type="button" class="btn btn-primary" onclick="calculateSIP()">Calculate</button>
+    </form>
+    <div class="mt-4" id="result"></div>
+    <div id="sipChartContainer">
+      <canvas id="sipChart"></canvas>
+    </div>
+  </div>
 
-    // Calculate SIP or Step-Up SIP
-    var finalValue = calculateFinalValue(monthlyInvestment, expectedReturn, noOfYears, considerInflation, sipType, stepUpRate);
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.getElementById('sipType').addEventListener('change', function() {
+      var stepUpRateContainer = document.getElementById('stepUpRateContainer');
+      if (this.value === 'step-up-sip') {
+        stepUpRateContainer.style.display = 'block';
+      } else {
+        stepUpRateContainer.style.display = 'none';
+      }
+    });
 
-    document.getElementById('result').innerHTML = '<h4>Final Value: ' + finalValue.toFixed(2) + '</h4>';
-  }
+    function calculateSIP() {
+      var monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
+      var expectedReturn = parseFloat(document.getElementById('expectedReturn').value) / 100;
+      var noOfYears = parseInt(document.getElementById('noOfYears').value);
+      var inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
+      var sipType = document.getElementById('sipType').value;
+      var stepUpRate = parseFloat(document.getElementById('stepUpRate').value) / 100;
 
-  function calculateFinalValue(monthlyInvestment, expectedReturn, noOfYears, considerInflation, sipType, stepUpRate) {
-    monthlyInvestment = parseFloat(monthlyInvestment);
-    expectedReturn = parseFloat(expectedReturn) / 100;
-    noOfYears = parseInt(noOfYears);
-    stepUpRate = parseFloat(stepUpRate) / 100;
-
-    var months = noOfYears * 12;
-    var finalValue = 0;
-
-    if (sipType === 'step-up-sip') {
+      var months = noOfYears * 12;
+      var finalValue = 0;
+      var totalInvestment = 0;
+      var yearlyValues = [];
       var currentInvestment = monthlyInvestment;
-      for (var i = 0; i < months; i++) {
-        finalValue += currentInvestment * Math.pow(1 + expectedReturn / 12, months - i);
-        if ((i + 1) % 12 === 0) {
-          currentInvestment += currentInvestment * stepUpRate;
+
+      if (sipType === 'step-up-sip') {
+        for (var i = 0; i < months; i++) {
+          finalValue += currentInvestment * Math.pow(1 + expectedReturn / 12, months - i);
+          totalInvestment += currentInvestment;
+          if ((i + 1) % 12 === 0) {
+            yearlyValues.push(finalValue);
+            currentInvestment += currentInvestment * stepUpRate;
+          }
+        }
+      } else {
+        for (var i = 0; i < months; i++) {
+          finalValue += monthlyInvestment * Math.pow(1 + expectedReturn / 12, months - i);
+          totalInvestment += monthlyInvestment;
+          if ((i + 1) % 12 === 0) {
+            yearlyValues.push(finalValue);
+          }
         }
       }
-    } else {
-      for (var i = 0; i < months; i++) {
-        finalValue += monthlyInvestment * Math.pow(1 + expectedReturn / 12, months - i);
-      }
-    }
 
-    return finalValue;
-  }
-</script>
+      var profitEarned = finalValue - totalInvestment;
+
+      // Display chart
+      var ctx = document.getElementById('sipChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Total Investment', 'Profit Earned'],
+          datasets: [{
+            data: [totalInvestment, profitEarned],
+            backgroundColor: ['orange', 'green']
+          }]
+        },
+        options: {
+          responsive: true
+        }
+      });
+
+      // Display results
+      var resultHtml = `
+        <h4>Final Value: ${finalValue.toFixed(2)}</h4>
+        <table class="table table-bordered">
+          <tr><th>Total Investment</th><td>${totalInvestment.toFixed(2)}</td></tr>
+          <tr><th>Profit Earned</th><td>${profitEarned.toFixed(2)}</td></tr>
+          <tr><th>Final Value</th><td>${finalValue.toFixed(2)}</td></tr>
+        </table>
+        <h5>Yearly Investment Value</h5>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Investment Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${yearlyValues.map((value, index) => `
+              <tr>
+                <td>${index + 1}</td>
+                <td>${value.toFixed(2)}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      `;
+      // Show the chart container
+      document.getElementById('sipChartContainer').style.display = 'block';
+      
+      document.getElementById('result').innerHTML = resultHtml;
+
+    }
+  </script>
+</body>
+</html>
