@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutual Funds Blogs</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <%- include('../partials/navbar') %>
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Mutual Funds Blogs</h1>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="/images/Mutual-Funds.png" class="card-img" alt="Understanding Mutual Funds">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Understanding Mutual Funds</h5>
+                <p class="card-text">An in-depth look at what mutual funds are, how they work, and why they might be a good investment option for you.</p>
+                <a href="/blogs/mutual-funds/blog1" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="/images/Is-Nippon-India-Small-Cap-Fund-good-1.png" class="card-img" alt="Top Mutual Funds of 2024">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Top Mutual Funds of 2024</h5>
+                <p class="card-text">Explore the top-performing mutual funds of 2024, their strategies, and what makes them stand out in the market.</p>
+                <a href="/blogs/mutual-funds/blog2" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more blog cards here -->
+    </div>
+  </div>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>
